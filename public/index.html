@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="./js/bundle.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+<h1>Total population of {{ countries.length }} countries is {{ totalPopulation }}</h1>
+<label for="country">Country</label>
+<select name="" v-model="selectedCountry">
+  <option value="">Select</option>
+  <option v-bind:value="country" v-for="(country, index) in countries">{{ country.name}}</option>
+</select>
+
+<ul v-if="selectedCountry">
+  <h3>Details</h3>
+<li> country: {{ selectedCountry.name }}, population {{selectedCountry.population}}</li>
+<img v-bind:src="selectedCountry.flag" alt="flag" height="200">
+<button type="button" name="button" v-model ="selectedCountry.fav">Add to favourites</button>
+</ul>
+    </div>
+  </body>
+
+</html>
